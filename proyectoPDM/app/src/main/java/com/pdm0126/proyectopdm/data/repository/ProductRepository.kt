@@ -22,12 +22,17 @@ class ProductRepository(context: Context) {
     }
 
     suspend fun syncProducts() {
-        val remoteProducts = api.getProducts()
-        val entities = remoteProducts.toEntityList()
+        try {
+            val remoteProducts = api.getProducts()
+            val entities = remoteProducts.toEntityList()
 
-        productDao.clearProducts()
-        productDao.insertProducts(entities)
+            productDao.clearProducts()
+            productDao.insertProducts(entities)
+        }catch (e: Exception) {
+        }
     }
+    }
+
 
     suspend fun getProductsOnce(): List<Product> {
         return productDao.getAllProductsOnce().toDomainList()
