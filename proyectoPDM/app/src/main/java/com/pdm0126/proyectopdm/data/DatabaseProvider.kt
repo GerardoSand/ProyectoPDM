@@ -14,7 +14,8 @@ object DatabaseProvider {
                 context.applicationContext,
                 AppDatabase::class.java,
                 "catalogo_sercom_db"
-            ).build()
+            )   .fallbackToDestructiveMigration(true)
+                .build()
 
             INSTANCE = instance
             instance

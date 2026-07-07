@@ -12,6 +12,6 @@ data class SaleRecordEntity(
 
     val amount: Double,
 
-    val createdAt: String
+    val createdAt: String?
 
 )

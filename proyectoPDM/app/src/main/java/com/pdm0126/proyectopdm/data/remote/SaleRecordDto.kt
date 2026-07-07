@@ -5,8 +5,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class SaleRecordDto(
-    val id: String,
+    val id: String? = null,
     @SerialName("user_id") val userId: String,
     val amount: Double,
-    @SerialName("created_at") val createdAt: String
+    @SerialName("created_at") val createdAt: String? = null
 )

@@ -15,9 +15,7 @@ class SalesRecordRepository(context: Context) {
     private val dao = DatabaseProvider.getDatabase(context).salesRecordDao()
 
     fun getSalesRecords(userId: String): Flow<List<SaleRecord>> {
-        return dao.getSalesRecords(userId).map { entities ->
-            entities.toDomainList()
-        }
+        return dao.getSalesRecords(userId).map { it.toDomainList() }
     }
 
     suspend fun syncSalesRecords(userId: String) {
@@ -32,10 +30,8 @@ class SalesRecordRepository(context: Context) {
 
     suspend fun saveSaleRecord(userId: String, amount: Double) {
         val newRecordDto = SaleRecordDto(
-            id = java.util.UUID.randomUUID().toString(), // logica de id no se si vamos a utilizar solo un random
             userId = userId,
             amount = amount,
-            createdAt = ""
         )
         
         try {

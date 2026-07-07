@@ -4,5 +4,5 @@ data class SaleRecord(
     val id: String,
     val userId: String,
     val amount: Double,
-    val createdAt: String
+    val createdAt: String?
 )

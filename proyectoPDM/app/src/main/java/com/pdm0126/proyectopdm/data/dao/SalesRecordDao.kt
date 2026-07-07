@@ -15,9 +15,6 @@ interface SalesRecordDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSalesRecords(records: List<SaleRecordEntity>)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertSalesRecord(record: SaleRecordEntity)
-    
     @Query("DELETE FROM sales_records WHERE userId = :userId")
     suspend fun clearSalesRecords(userId: String)
 }

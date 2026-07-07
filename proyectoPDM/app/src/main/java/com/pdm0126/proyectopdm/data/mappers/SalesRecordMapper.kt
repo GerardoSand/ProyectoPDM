@@ -6,7 +6,7 @@ import com.pdm0126.proyectopdm.data.remote.SaleRecordDto
 
 fun SaleRecordDto.toEntity(): SaleRecordEntity {
     return SaleRecordEntity(
-        id = id,
+        id = id ?: "",
         userId = userId,
         amount = amount,
         createdAt = createdAt
