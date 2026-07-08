@@ -8,4 +8,8 @@ interface ProductRepository {
     fun getLocalProducts(): Flow<List<Product>>
     suspend fun syncProducts(): DataResult<Unit>
     suspend fun getProductsOnce(): List<Product>
+
+    suspend fun createProduct(product: Product): DataResult<Unit>
+    suspend fun updateProduct(product: Product): DataResult<Unit>
+    suspend fun disableProduct(productId: String): DataResult<Unit>
 }

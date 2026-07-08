@@ -5,7 +5,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ProductDto(
-    val id: String,
+    val id: String? = null,
+
     val name: String,
     val brand: String,
 
@@ -18,7 +19,7 @@ data class ProductDto(
     val category: String,
 
     @SerialName("is_active")
-    val isActive: Boolean,
+    val isActive: Boolean = true,
 
     @SerialName("image_url")
     val imageUrl: String? = null,

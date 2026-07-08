@@ -3,6 +3,7 @@ package com.pdm0126.proyectopdm.data.repository
 import android.content.Context
 import com.pdm0126.proyectopdm.data.DatabaseProvider
 import com.pdm0126.proyectopdm.data.mappers.toDomainList
+import com.pdm0126.proyectopdm.data.mappers.toDto
 import com.pdm0126.proyectopdm.data.mappers.toEntityList
 import com.pdm0126.proyectopdm.data.model.Product
 import com.pdm0126.proyectopdm.data.remote.ProductApi
@@ -38,5 +39,35 @@ class ProductRepositoryImpl(context: Context) : ProductRepository {
 
     override suspend fun getProductsOnce(): List<Product> {
         return productDao.getAllProductsOnce().toDomainList()
+    }
+
+    override suspend fun createProduct(product: Product): DataResult<Unit> {
+        return try {
+            api.createProduct(product.toDto())
+            syncProducts()
+            DataResult.Success(Unit)
+        } catch (e: Exception) {
+            DataResult.Error(e.message ?: "Error al crear producto")
+        }
+    }
+
+    override suspend fun updateProduct(product: Product): DataResult<Unit> {
+        return try {
+            api.updateProduct(product.id, product.toDto())
+            syncProducts()
+            DataResult.Success(Unit)
+        } catch (e: Exception) {
+            DataResult.Error(e.message ?: "Error al actualizar producto")
+        }
+    }
+
+    override suspend fun disableProduct(productId: String): DataResult<Unit> {
+        return try {
+            api.disableProduct(productId)
+            syncProducts()
+            DataResult.Success(Unit)
+        } catch (e: Exception) {
+            DataResult.Error(e.message ?: "Error al desactivar producto")
+        }
     }
 }

@@ -6,7 +6,7 @@ import com.pdm0126.proyectopdm.data.model.Product
 
 fun ProductDto.toEntity(): ProductEntity {
     return ProductEntity(
-        id = id,
+        id = id ?: "",
         name = name,
         brand = brand,
         priceContado = priceContado,
@@ -38,4 +38,18 @@ fun ProductEntity.toDomain(): Product {
 
 fun List<ProductEntity>.toDomainList(): List<Product> {
     return map { it.toDomain() }
+}
+
+fun Product.toDto(): ProductDto {
+    return ProductDto(
+        id = id,
+        name = name,
+        brand = brand,
+        priceContado = priceContado,
+        priceCuotas = priceCuotas,
+        category = category,
+        isActive = isActive,
+        imageUrl = imageUrl,
+        createdAt = createdAt
+    )
 }
