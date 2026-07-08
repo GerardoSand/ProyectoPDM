@@ -15,13 +15,14 @@ import com.pdm0126.proyectopdm.ui.theme.ProyectoPDMTheme
 import android.util.Log
 import androidx.lifecycle.lifecycleScope
 import com.pdm0126.proyectopdm.data.repository.ProductRepository
+import com.pdm0126.proyectopdm.data.repository.ProductRepositoryImpl
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val repository = ProductRepository(applicationContext)
+        val repository = ProductRepositoryImpl(applicationContext)
 
         lifecycleScope.launch {
             try {
