@@ -2,6 +2,7 @@ package com.pdm0126.proyectopdm.data.repository
 
 import android.content.Context
 import com.pdm0126.proyectopdm.data.DatabaseProvider
+import com.pdm0126.proyectopdm.data.mappers.toDomain
 import com.pdm0126.proyectopdm.data.mappers.toDomainList
 import com.pdm0126.proyectopdm.data.mappers.toEntityList
 import com.pdm0126.proyectopdm.data.model.SaleRecord
@@ -47,6 +48,14 @@ class SalesRecordRepositoryImpl(context: Context) : SalesRecordRepository{
             DataResult.Success(Unit)
         } catch (e: Exception) {
             DataResult.Error(e.message ?: "Error al guardar registro de venta")
+        }
+    }
+
+    override suspend fun getAllSalesRecords(): List<SaleRecord> {
+        return try {
+            api.getAllSalesRecords().map { it.toDomain() }
+        } catch (e: Exception) {
+            emptyList()
         }
     }
 }

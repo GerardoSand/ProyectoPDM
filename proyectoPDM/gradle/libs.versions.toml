@@ -14,6 +14,7 @@ ksp  = "2.3.9"
 navigation3 = "1.1.0"
 kotlinxSerializationCore = "1.11.0"
 compose-material = "1.7.7"
+supabase = "3.6.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -44,6 +45,9 @@ kotlinx-serialization-core   = { group = "org.jetbrains.kotlinx", name = "kotlin
 compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "compose-material" }
 compose-material-icons-core = { group = "androidx.compose.material", name = "material-icons-core", version.ref = "compose-material" }
 androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtx" }
+supabase-bom = { group = "io.github.jan-tennert.supabase", name = "bom", version.ref = "supabase" }
+supabase-postgrest = { group = "io.github.jan-tennert.supabase", name = "postgrest-kt" }
+supabase-auth = { group = "io.github.jan-tennert.supabase", name = "auth-kt" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

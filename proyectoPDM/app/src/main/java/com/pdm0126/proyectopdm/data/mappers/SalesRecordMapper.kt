@@ -29,3 +29,12 @@ fun SaleRecordEntity.toDomain(): SaleRecord {
 fun List<SaleRecordEntity>.toDomainList(): List<SaleRecord> {
     return map { it.toDomain() }
 }
+
+fun SaleRecordDto.toDomain(): SaleRecord {
+    return SaleRecord(
+        id = id ?: "",
+        userId = userId,
+        amount = amount,
+        createdAt = createdAt ?: ""
+    )
+}

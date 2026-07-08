@@ -40,6 +40,23 @@ fun List<ProductEntity>.toDomainList(): List<Product> {
     return map { it.toDomain() }
 }
 
+<<<<<<< HEAD
+=======
+fun Product.toEntity(): ProductEntity {
+    return ProductEntity(
+        id = id,
+        name = name,
+        brand = brand,
+        priceContado = priceContado,
+        priceCuotas = priceCuotas,
+        category = category,
+        imageUrl = imageUrl,
+        isActive = isActive,
+        createdAt = createdAt
+    )
+}
+
+>>>>>>> 8b91bae (ui)
 fun Product.toDto(): ProductDto {
     return ProductDto(
         id = id,
@@ -48,8 +65,13 @@ fun Product.toDto(): ProductDto {
         priceContado = priceContado,
         priceCuotas = priceCuotas,
         category = category,
+<<<<<<< HEAD
         isActive = isActive,
         imageUrl = imageUrl,
+=======
+        imageUrl = imageUrl,
+        isActive = isActive,
+>>>>>>> 8b91bae (ui)
         createdAt = createdAt
     )
 }

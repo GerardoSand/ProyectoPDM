@@ -38,4 +38,19 @@ class ProfileRepositoryImpl(context: Context) : ProfileRepository {
             DataResult.Error(e.message ?: "Error al sincronizar perfiles")
         }
     }
+
+    override suspend fun insertProfile(profile: Profile) {
+        val dto = com.pdm0126.proyectopdm.data.remote.ProfileDto(
+            id = profile.id,
+            fullName = profile.fullName,
+            role = profile.role
+        )
+        api.insertProfile(dto)
+        val entity = com.pdm0126.proyectopdm.data.entity.ProfileEntity(
+            id = profile.id,
+            fullName = profile.fullName,
+            role = profile.role
+        )
+        dao.insertProfiles(listOf(entity))
+    }
 }

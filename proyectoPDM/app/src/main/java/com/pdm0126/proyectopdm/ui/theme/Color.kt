@@ -2,10 +2,12 @@ package com.pdm0126.proyectopdm.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+val GreenPrimary = Color(0xFF2E7D32)
+val GreenSecondary = Color(0xFF81C784)
+val GreenTertiary = Color(0xFFA5D6A7)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val GlassWhite = Color(0xD9FFFFFF) // 85% opacity
+val GlassWhiteDark = Color(0x26FFFFFF) // 15% opacity
+
+val BackgroundLight = Color(0xFFF1F8F1)
+val BackgroundDark = Color(0xFF121E14)

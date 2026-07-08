@@ -15,7 +15,7 @@ import com.pdm0126.proyectopdm.data.entity.SaleRecordEntity
         SaleRecordEntity::class,
         ProfileEntity::class
     ],
-    version = 3
+    version = 5
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun productDao(): ProductDao
